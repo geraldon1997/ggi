@@ -70,7 +70,7 @@
                     <div class="about_content_wrapper">
                         <div class="sv_heading_wraper">
                             <h4 style="color: #00aaef;">who we are</h4>
-                            <h3 style="color: #f6c60d;">At  Glam Global:</h3>
+                            <h3 style="color: #f6c60d;">At <?= APP_NAME; ?>:</h3>
 
                         </div>
                         <div class="welcone_savehiyp float_left">
@@ -562,7 +562,7 @@
                         <div class="investment_border_wrapper"></div>
                         <div class="investment_content_wrapper">
                             <h1><a href="#">We're Certified</a></h1>
-                            <p>Glam Global is officially registered with Company Registration No 10240806. With reasonable amount of years of customer satisfaction and Trust building, we earned that. </p>
+                            <p><?= APP_NAME; ?> is officially registered with Company Registration No 10240806. With reasonable amount of years of customer satisfaction and Trust building, we earned that. </p>
                         </div>
 
                     </div>
@@ -653,7 +653,7 @@
                             <div class="item">
                                 <div class="testimonial_slide_main_wrapper dark_top_testimonial">
                                     <div class="ts_client_cont_wrapper">
-                                        <p>“In the investment world, and business in general, an individual’s or company’s character is of the utmost importance. It is due to this trust and faith (plus the financial and deep track record) that I hold the Glam Global team in high regard.”</p>
+                                        <p>“In the investment world, and business in general, an individual’s or company’s character is of the utmost importance. It is due to this trust and faith (plus the financial and deep track record) that I hold the <?= APP_NAME; ?> team in high regard.”</p>
                                     </div>
                                     <div class="ts_img_social_wrapper">
                                         <div class="ts_client_img_wrapper">
@@ -670,7 +670,7 @@
                             <div class="item">
                                 <div class="testimonial_slide_main_wrapper">
                                     <div class="ts_client_cont_wrapper dark_testimonial_wrapper">
-                                        <p>"I have personally invested with Glam Global and have also referred a number of investors who, upon doing their own due diligence, have invested with Glam Global as well."</p>
+                                        <p>"I have personally invested with <?= APP_NAME; ?> and have also referred a number of investors who, upon doing their own due diligence, have invested with <?= APP_NAME; ?> as well."</p>
                                     </div>
                                     <div class="ts_img_social_wrapper p2">
                                         <div class="ts_client_social_wrapper right_social_medaia">
@@ -706,7 +706,7 @@
                             <div class="item">
                                 <div class="testimonial_slide_main_wrapper">
                                     <div class="ts_client_cont_wrapper dark_testimonial_wrapper">
-                                        <p>“For sure you want to earn more! Glam Global offer the best opportunity to increase your income using partnership tools.”</p>
+                                        <p>“For sure you want to earn more! <?= APP_NAME; ?> offer the best opportunity to increase your income using partnership tools.”</p>
                                     </div>
                                     <div class="ts_img_social_wrapper p2">
                                         <div class="ts_client_social_wrapper right_social_medaia">
@@ -867,13 +867,13 @@
                 </div>
                 <div class="zero_balance_wrapper">
                     <div class="zero_commisition refreal_commison_section">
-                        <h1>Refferal Commission</h1>
-                        <p>Get On First Level Refferal Commission </p>
+                        <h1>Referral Commission</h1>
+                        <p>Get On First Level Referral Commission </p>
                         <div class="about_btn refreal_btn float_left">
                             <h3>10%</h3>
                             <ul>
                                 <li>
-                                    <a href="login.php">get link</a>
+                                    <a href="<?= SIGNIN; ?>">get link</a>
                                 </li>
                             </ul>
                         </div>

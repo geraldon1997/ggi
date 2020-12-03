@@ -8,8 +8,8 @@ use App\Models\User;
 
 require_once '../vendor/autoload.php';
 
-define('APP_NAME', 'Glam Global Investment');
-define('APP_ABBRV', 'GGI');
+define('APP_NAME', 'Glam Global Limited');
+define('APP_ABBRV', 'GGL');
 define('APP_URL', 'http://ggi.test/');
 define('ASSETS', APP_URL.'public/assets/');
 define('HOME', '/');
