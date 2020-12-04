@@ -229,10 +229,10 @@
                             <li>
                                 <a href="https://api.whatsapp.com/send/?phone=+13233642197&text=hello i am chatting from Glam Global Investment website" target="_blank"><i class="fab fa-whatsapp"></i>+1 323 3642 197</a>
                             </li>
-                            <li><a href="mailto:support@glamglobal.com"><i class="fa fa-envelope"></i>support@glamglobal.com</a>
+                            <li><a href="mailto:support@glamgloballimited.com"><i class="fa fa-envelope"></i>support@glamgloballimited.com</a>
                             </li>
 
-                            <li><i class="fa fa-map"></i>1419 Westwood Blvd Los Angeles, CA 90024 United States
+                            <li><i class="fa fa-map"></i>89 Jacolite Street BRIGADOON WA 6069, Australia
                             </li>
                         </ul>
                     </div>
@@ -241,18 +241,9 @@
                 <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                     <div class="copyright_wrapper float_left">
                         <div class="copyright">
-                            <p>Copyright <i class="far fa-copyright"></i> 2019 <a href="/"> Glam Global</a>. all right reserved </p>
+                            <p>Copyright <i class="far fa-copyright"></i> <?= date('Y'); ?> <a href="/"><?= APP_NAME; ?></a>. all right reserved </p>
                         </div>
-                        <div class="social_link_foter">
-
-                            <ul>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a href="#"><i class="fab fa-google-plus-g"></i></a></li>
-
-                            </ul>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

@@ -525,23 +525,7 @@
         </div>
     </div>
     <!-- transaction wrapper start -->
-    <!-- works wrapper start -->
-    <div class="works_wrapper float_left">
-        <div class="work_banner_wrapper">
-            <img src="<?= ASSETS; ?>images/work_banner.jpg" alt="img">
-        </div>
-        <div class="howwork_banner_wrapper index2_homwork_banner_wrapper">
-            <div class="vedio_link_wrapper">
-                <a class="test-popup-link button" rel='external' href='https://www.youtube.com/watch?v=asTZF2_7fHk&feature=youtu.be' title='title'><i class="fa fa-play"></i></a>
-                <div class="work_content_wrap">
-                    <h1>How It Works</h1>
-                    <p style="color: white;">Wondering how it Works?  Watch the Video.</p>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- works wrapper end -->
+    
     <!--our services wrapper start -->
     <div class="our_services_wrapper float_left">
         <div class="container">
