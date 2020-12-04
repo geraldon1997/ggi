@@ -128,7 +128,7 @@
                         <div class="about_btn plans_btn">
                             <ul>
                                 <li>
-                                    <a href="login.php">invest</a>
+                                    <a href="<?= SIGNIN; ?>">invest</a>
                                 </li>
                             </ul>
                         </div>
@@ -153,7 +153,7 @@
                         <div class="about_btn plans_btn red_btn_plans">
                             <ul>
                                 <li>
-                                    <a href="login.php">invest</a>
+                                    <a href="<?= SIGNIN; ?>">invest</a>
                                 </li>
                             </ul>
                         </div>
@@ -168,8 +168,8 @@
                         <div class="investment_border_wrapper green_border_wrapper"></div>
                         <div class="investment_content_wrapper green_content_wrapper">
                             <h1><a href="#">gold plan</a></h1>
-                            <p>1.5% daily
-                                <br> for 30 days
+                            <p>3% daily
+                                <br> for 15 days
                                 <br> 45% ROI
                                 <br> Minimum $5,000
                                 <br> Maximum $50,000
@@ -178,7 +178,7 @@
                         <div class="about_btn plans_btn green_plan_btn">
                             <ul>
                                 <li>
-                                    <a href="login.php">invest</a>
+                                    <a href="<?= SIGNIN; ?>">invest</a>
                                 </li>
                             </ul>
                         </div>
