@@ -117,7 +117,7 @@
                         <li>
                             <a href="<?= SIGNIN; ?>"> Get started </a> </li>
                         <li>
-                            <a href="<?= SIGNIN; ?>">  </a> </li>
+                            <a href="<?= SIGNIN; ?>"> Login </a> </li>
                     </ul>
 
 
