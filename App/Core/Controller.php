@@ -79,29 +79,32 @@ class Controller
         $is_logged_in = Auth::findSingle(Auth::$table, 'user_id', $userid)[0]['is_logged_in'];
         
         $exists_in_general = array_search($view, $this->views['auth']['general']);
-        if (!$exists_in_general) {
-            $roleid = User::findSingle(User::$table, 'email', $_SESSION['email'])[0]['role_id'];
-            $role = Role::findSingle(Role::$table, 'id', $roleid)[0]['role'];
-
-            $exists_in_secret = array_search($view, $this->views['auth'][$role]);
-            if (!$exists_in_secret) {
-                Response::code(404);
-                unset($_SESSION['email']);
-                return Response::redirect('/user/signin');
-            }
+        if ($exists_in_general) {
             Response::code(200);
             if (!$is_logged_in) {
+                if ($view === 'login') {
+                    return View::renderView($this->auth, $view, $params);
+                }
                 return View::renderView($this->main, $view, $params);
             }
             return View::renderView($this->dashboard, $view, $params);
+            // return $view;
         }
-        Response::code(200);
+        
+
+        $roleid = User::findSingle(User::$table, 'email', $_SESSION['email'])[0]['role_id'];
+            $role = Role::findSingle(Role::$table, 'id', $roleid)[0]['role'];
+
+            $exists_in_secret = array_search($view, $this->views['auth'][$role]);
+        if (!$exists_in_secret) {
+            Response::code(404);
+            unset($_SESSION['email']);
+            return Response::redirect(SIGNIN);
+        }
+            Response::code(200);
         if (!$is_logged_in) {
-            if ($view === 'login') {
-                return View::renderView($this->auth, $view, $params);
-            }
             return View::renderView($this->main, $view, $params);
         }
-        return View::renderView($this->dashboard, $view, $params);
+            return View::renderView($this->dashboard, $view, $params);
     }
 }

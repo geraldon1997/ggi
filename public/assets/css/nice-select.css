@@ -121,13 +121,13 @@
     text-align: left;
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
-	.nice-select .option{
-		-webkit-transition: all 0.5s;
+    .nice-select .option{
+        -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     -ms-transition: all 0.5s;
     -moz-transition: all 0.5s;
     transition: all 0.5s;
-	}
+    }
     .nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
       background-color: #f9f9f9;-webkit-transition: all 0.5s;
     -o-transition: all 0.5s;

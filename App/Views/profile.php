@@ -84,7 +84,7 @@ use App\Models\Profile as P;
 
         var form = $('.form').attr('id');
         var formdata = $('form').serialize();
-console.log(form);
+
         $('form #update').prop('disabled','true').html('processing . . .');
         if (form === 'add') {
             $.ajax({

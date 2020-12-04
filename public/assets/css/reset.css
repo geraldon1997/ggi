@@ -1,7 +1,7 @@
 
-/* -------------------------------- 
+/* --------------------------------
 
-Main Components 
+Main Components
 
 -------------------------------- */
 header {
@@ -18,7 +18,7 @@ header {
       float: right;
 }
 .house_toggle i{
-	font-size:17px;
+    font-size:17px;
 }
 .cd-dropdown-trigger {
   display: block;
@@ -154,15 +154,15 @@ header {
   z-index: 1;
   position:relative;
       line-height: 31px;
-	  background: #fff;
+      background: #fff;
 }
 .cd-dropdown h2 a{
-	    color: #004165;
+        color: #004165;
     font-size: 16px;
     font-weight: 400;
 }
 .cd-dropdown h2 span{
-	color:#23c0e9;
+    color:#23c0e9;
 }
 .cd-dropdown .cd-close {
   /* 'X' close icon - mobile version only */
@@ -220,7 +220,7 @@ header {
   -moz-transition: -moz-transform 0.5s 0s, visibility 0s 0s;
   transition: transform 0.5s 0s, visibility 0s 0s;
       box-shadow: 2px 0 20px rgba(0, 0, 0, 0.05);
-	  background:#fff;
+      background:#fff;
 }
 @media only screen and (min-width: 768px) {
   .cd-dropdown .cd-close {
@@ -917,7 +917,7 @@ header {
   transform-origin: 9px 50%;
 }
 .cd-dropdown-content li a{
-	 border-bottom:1px solid #eee;
+     border-bottom:1px solid #eee;
 }
 @media only screen and (min-width: 1024px) {
   .open-to-left .cd-dropdown-content > .has-children > a {
@@ -968,29 +968,29 @@ header {
   display: none;
 }
 .cd-dropdown-content li a{
-	    -webkit-transition: all 0.5s;
+        -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     -ms-transition: all 0.5s;
     -moz-transition: all 0.5s;
     transition: all 0.5s;
 }
 .cd-dropdown-content li a:hover{
-	background:#30a3f0;
-	color:#ffffff;
-	    -webkit-transition: all 0.5s;
+    background:#30a3f0;
+    color:#ffffff;
+        -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     -ms-transition: all 0.5s;
     -moz-transition: all 0.5s;
     transition: all 0.5s;
 }
 .has-children:hover > a::before, .has-children:hover > a::after, .go-back:hover a::before, .go-back:hover a::after{
-	background:#ffffff;
-	-webkit-transition: all 0.5s;
+    background:#ffffff;
+    -webkit-transition: all 0.5s;
     -o-transition: all 0.5s;
     -ms-transition: all 0.5s;
     -moz-transition: all 0.5s;
     transition: all 0.5s;
 }
 .cd-dropdown-content li a:hover::before, .cd-dropdown-content li a:hover::after, .cd-dropdown-content li a:hover::before, .cd-dropdown-content li a:hover::after{
-	background:#fff;
+    background:#fff;
 }

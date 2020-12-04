@@ -71,88 +71,90 @@
  * MIT License
 */
 
-jQuery(document).ready(function($){
-	//open/close mega-navigation
-	$('.house_toggle').on('click', function(event){
-		event.preventDefault();
-		toggleNav();
-	});
+jQuery(document).ready(function ($) {
+    //open/close mega-navigation
+    $('.house_toggle').on('click', function (event) {
+        event.preventDefault();
+        toggleNav();
+    });
 
-	//close meganavigation
-	$('.cd-dropdown .cd-close').on('click', function(event){
-		event.preventDefault();
-		toggleNav();
-	});
+    //close meganavigation
+    $('.cd-dropdown .cd-close').on('click', function (event) {
+        event.preventDefault();
+        toggleNav();
+    });
 
-	//on mobile - open submenu
-	$('.has-children').children('a').on('click', function(event){
-		//prevent default clicking on direct children of .has-children 
-		event.preventDefault();
-		var selected = $(this);
-		selected.next('ul').removeClass('is-hidden').end().parent('.has-children').parent('ul').addClass('move-out');
-	});
+    //on mobile - open submenu
+    $('.has-children').children('a').on('click', function (event) {
+        //prevent default clicking on direct children of .has-children
+        event.preventDefault();
+        var selected = $(this);
+        selected.next('ul').removeClass('is-hidden').end().parent('.has-children').parent('ul').addClass('move-out');
+    });
 
 
 
-	//submenu items - go back link
-	$('.go-back').on('click', function(){
-		var selected = $(this),
-			visibleNav = $(this).parent('ul').parent('.has-children').parent('ul');
-		selected.parent('ul').addClass('is-hidden').parent('.has-children').parent('ul').removeClass('move-out');
-	}); 
+    //submenu items - go back link
+    $('.go-back').on('click', function () {
+        var selected = $(this),
+            visibleNav = $(this).parent('ul').parent('.has-children').parent('ul');
+        selected.parent('ul').addClass('is-hidden').parent('.has-children').parent('ul').removeClass('move-out');
+    });
 
-	function toggleNav(){
-		var navIsVisible = ( !$('.cd-dropdown').hasClass('dropdown-is-active') ) ? true : false;
-		$('.cd-dropdown').toggleClass('dropdown-is-active', navIsVisible);
-		$('.house_toggle').toggleClass('dropdown-is-active', navIsVisible);
-		if( !navIsVisible ) {
-			$('.cd-dropdown').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',function(){
-				$('.has-children ul').addClass('is-hidden');
-				$('.move-out').removeClass('move-out');
-				$('.is-active').removeClass('is-active');
-			});	
-		}
-	}
+    function toggleNav()
+    {
+        var navIsVisible = ( !$('.cd-dropdown').hasClass('dropdown-is-active') ) ? true : false;
+        $('.cd-dropdown').toggleClass('dropdown-is-active', navIsVisible);
+        $('.house_toggle').toggleClass('dropdown-is-active', navIsVisible);
+        if ( !navIsVisible ) {
+            $('.cd-dropdown').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend',function () {
+                $('.has-children ul').addClass('is-hidden');
+                $('.move-out').removeClass('move-out');
+                $('.is-active').removeClass('is-active');
+            });
+        }
+    }
 
-	//IE9 placeholder fallback
-	//credits http://www.hagenburger.net/BLOG/HTML5-Input-Placeholder-Fix-With-jQuery.html
-	if(!Modernizr.input.placeholder){
-		$('[placeholder]').focus(function() {
-			var input = $(this);
-			if (input.val() == input.attr('placeholder')) {
-				input.val('');
-		  	}
-		}).blur(function() {
-		 	var input = $(this);
-		  	if (input.val() == '' || input.val() == input.attr('placeholder')) {
-				input.val(input.attr('placeholder'));
-		  	}
-		}).blur();
-		$('[placeholder]').parents('form').submit(function() {
-		  	$(this).find('[placeholder]').each(function() {
-				var input = $(this);
-				if (input.val() == input.attr('placeholder')) {
-			 		input.val('');
-				}
-		  	})
-		});
-	}
+    //IE9 placeholder fallback
+    //credits http://www.hagenburger.net/BLOG/HTML5-Input-Placeholder-Fix-With-jQuery.html
+    if (!Modernizr.input.placeholder) {
+        $('[placeholder]').focus(function () {
+            var input = $(this);
+            if (input.val() == input.attr('placeholder')) {
+                input.val('');
+            }
+        }).blur(function () {
+            var input = $(this);
+            if (input.val() == '' || input.val() == input.attr('placeholder')) {
+                input.val(input.attr('placeholder'));
+            }
+        }).blur();
+        $('[placeholder]').parents('form').submit(function () {
+            $(this).find('[placeholder]').each(function () {
+                var input = $(this);
+                if (input.val() == input.attr('placeholder')) {
+                    input.val('');
+                }
+            })
+        });
+    }
 });
 
 
 
-(function($) {
+(function ($) {
 
-    $.fn.menuAim = function(opts) {
+    $.fn.menuAim = function (opts) {
         // Initialize menu-aim for all elements in jQuery collection
-        this.each(function() {
+        this.each(function () {
             init.call(this, opts);
         });
 
         return this;
     };
 
-    function init(opts) {
+    function init(opts)
+    {
         var $menu = $(this),
             activeRow = null,
             mouseLocs = [],
@@ -176,88 +178,88 @@ jQuery(document).ready(function($){
         /**
          * Keep track of the last few locations of the mouse.
          */
-        var mousemoveDocument = function(e) {
+        var mousemoveDocument = function (e) {
                 mouseLocs.push({x: e.pageX, y: e.pageY});
 
-                if (mouseLocs.length > MOUSE_LOCS_TRACKED) {
-                    mouseLocs.shift();
-                }
-            };
+            if (mouseLocs.length > MOUSE_LOCS_TRACKED) {
+                mouseLocs.shift();
+            }
+        };
 
         /**
          * Cancel possible row activations when leaving the menu entirely
          */
-        var mouseleaveMenu = function() {
-                if (timeoutId) {
-                    clearTimeout(timeoutId);
-                }
+        var mouseleaveMenu = function () {
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
 
                 // If exitMenu is supplied and returns true, deactivate the
                 // currently active row on menu exit.
-                if (options.exitMenu(this)) {
-                    if (activeRow) {
-                        options.deactivate(activeRow);
-                    }
-
-                    activeRow = null;
+            if (options.exitMenu(this)) {
+                if (activeRow) {
+                    options.deactivate(activeRow);
                 }
-            };
+
+                activeRow = null;
+            }
+        };
 
         /**
          * Trigger a possible row activation whenever entering a new row.
          */
-        var mouseenterRow = function() {
-                if (timeoutId) {
-                    // Cancel any previous activation delays
-                    clearTimeout(timeoutId);
-                }
+        var mouseenterRow = function () {
+            if (timeoutId) {
+                // Cancel any previous activation delays
+                clearTimeout(timeoutId);
+            }
 
                 options.enter(this);
                 possiblyActivate(this);
-            },
-            mouseleaveRow = function() {
+        },
+            mouseleaveRow = function () {
                 options.exit(this);
             };
 
         /*
          * Immediately activate a row if the user clicks on it.
          */
-        var clickRow = function() {
+        var clickRow = function () {
                 activate(this);
-            };
+        };
 
         /**
          * Activate a menu row.
          */
-        var activate = function(row) {
-                if (row == activeRow) {
-                    return;
-                }
+        var activate = function (row) {
+            if (row == activeRow) {
+                return;
+            }
 
-                if (activeRow) {
-                    options.deactivate(activeRow);
-                }
+            if (activeRow) {
+                options.deactivate(activeRow);
+            }
 
                 options.activate(row);
                 activeRow = row;
-            };
+        };
 
         /**
          * Possibly activate a menu row. If mouse movement indicates that we
          * shouldn't activate yet because user may be trying to enter
          * a submenu's content, then delay and check again later.
          */
-        var possiblyActivate = function(row) {
+        var possiblyActivate = function (row) {
                 var delay = activationDelay();
 
-                if (delay) {
-                    timeoutId = setTimeout(function() {
-                        possiblyActivate(row);
-                    }, delay);
-                } else {
-                    activate(row);
-                }
-            };
+            if (delay) {
+                timeoutId = setTimeout(function () {
+                    possiblyActivate(row);
+                }, delay);
+            } else {
+                activate(row);
+            }
+        };
 
         /**
          * Return the amount of time that should be used as a delay before the
@@ -267,54 +269,54 @@ jQuery(document).ready(function($){
          * returns the number of milliseconds that should be delayed before
          * checking again to see if the row should be activated.
          */
-        var activationDelay = function() {
-                if (!activeRow || !$(activeRow).is(options.submenuSelector)) {
-                    // If there is no other submenu row already active, then
-                    // go ahead and activate immediately.
-                    return 0;
-                }
+        var activationDelay = function () {
+            if (!activeRow || !$(activeRow).is(options.submenuSelector)) {
+                // If there is no other submenu row already active, then
+                // go ahead and activate immediately.
+                return 0;
+            }
 
                 var offset = $menu.offset(),
                     upperLeft = {
                         x: offset.left,
                         y: offset.top - options.tolerance
-                    },
+            },
                     upperRight = {
                         x: offset.left + $menu.outerWidth(),
                         y: upperLeft.y
-                    },
+            },
                     lowerLeft = {
                         x: offset.left,
                         y: offset.top + $menu.outerHeight() + options.tolerance
-                    },
+            },
                     lowerRight = {
                         x: offset.left + $menu.outerWidth(),
                         y: lowerLeft.y
-                    },
+            },
                     loc = mouseLocs[mouseLocs.length - 1],
                     prevLoc = mouseLocs[0];
 
-                if (!loc) {
-                    return 0;
-                }
+            if (!loc) {
+                return 0;
+            }
 
-                if (!prevLoc) {
-                    prevLoc = loc;
-                }
+            if (!prevLoc) {
+                prevLoc = loc;
+            }
 
-                if (prevLoc.x < offset.left || prevLoc.x > lowerRight.x ||
+            if (prevLoc.x < offset.left || prevLoc.x > lowerRight.x ||
                     prevLoc.y < offset.top || prevLoc.y > lowerRight.y) {
-                    // If the previous mouse location was outside of the entire
-                    // menu's bounds, immediately activate.
-                    return 0;
-                }
+                // If the previous mouse location was outside of the entire
+                // menu's bounds, immediately activate.
+                return 0;
+            }
 
-                if (lastDelayLoc &&
+            if (lastDelayLoc &&
                         loc.x == lastDelayLoc.x && loc.y == lastDelayLoc.y) {
-                    // If the mouse hasn't moved since the last time we checked
-                    // for activation status, immediately activate.
-                    return 0;
-                }
+                // If the mouse hasn't moved since the last time we checked
+                // for activation status, immediately activate.
+                return 0;
+            }
 
                 // Detect if the user is moving towards the currently activated
                 // submenu.
@@ -335,9 +337,10 @@ jQuery(document).ready(function($){
                 // down the screen, we are looking for the slope between the
                 // cursor and the upper right corner to decrease over time, not
                 // increase (somewhat counterintuitively).
-                function slope(a, b) {
-                    return (b.y - a.y) / (b.x - a.x);
-                };
+            function slope(a, b)
+            {
+                return (b.y - a.y) / (b.x - a.x);
+            };
 
                 var decreasingCorner = upperRight,
                     increasingCorner = lowerRight;
@@ -349,34 +352,34 @@ jQuery(document).ready(function($){
                 // corner to decrease over time, as explained above. If the
                 // submenu opens in a different direction, we change our slope
                 // expectations.
-                if (options.submenuDirection == "left") {
-                    decreasingCorner = lowerLeft;
-                    increasingCorner = upperLeft;
-                } else if (options.submenuDirection == "below") {
-                    decreasingCorner = lowerRight;
-                    increasingCorner = lowerLeft;
-                } else if (options.submenuDirection == "above") {
-                    decreasingCorner = upperLeft;
-                    increasingCorner = upperRight;
-                }
+            if (options.submenuDirection == "left") {
+                decreasingCorner = lowerLeft;
+                increasingCorner = upperLeft;
+            } else if (options.submenuDirection == "below") {
+                decreasingCorner = lowerRight;
+                increasingCorner = lowerLeft;
+            } else if (options.submenuDirection == "above") {
+                decreasingCorner = upperLeft;
+                increasingCorner = upperRight;
+            }
 
                 var decreasingSlope = slope(loc, decreasingCorner),
                     increasingSlope = slope(loc, increasingCorner),
                     prevDecreasingSlope = slope(prevLoc, decreasingCorner),
                     prevIncreasingSlope = slope(prevLoc, increasingCorner);
 
-                if (decreasingSlope < prevDecreasingSlope &&
+            if (decreasingSlope < prevDecreasingSlope &&
                         increasingSlope > prevIncreasingSlope) {
-                    // Mouse is moving from previous location towards the
-                    // currently activated submenu. Delay before activating a
-                    // new menu row, because user may be moving into submenu.
-                    lastDelayLoc = loc;
-                    return DELAY;
-                }
+                // Mouse is moving from previous location towards the
+                // currently activated submenu. Delay before activating a
+                // new menu row, because user may be moving into submenu.
+                lastDelayLoc = loc;
+                return DELAY;
+            }
 
                 lastDelayLoc = null;
                 return 0;
-            };
+        };
 
         /**
          * Hook up initial menu events

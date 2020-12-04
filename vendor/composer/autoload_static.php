@@ -7,30 +7,30 @@ namespace Composer\Autoload;
 class ComposerStaticInita6a44aea3159a7c961ad0f05d7467e36
 {
     public static $prefixLengthsPsr4 = array (
-        'P' => 
+        'P' =>
         array (
             'PHPMailer\\PHPMailer\\' => 20,
         ),
-        'H' => 
+        'H' =>
         array (
             'HolidayAPI\\' => 11,
         ),
-        'A' => 
+        'A' =>
         array (
             'App\\' => 4,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'PHPMailer\\PHPMailer\\' => 
+        'PHPMailer\\PHPMailer\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
-        'HolidayAPI\\' => 
+        'HolidayAPI\\' =>
         array (
             0 => __DIR__ . '/..' . '/holidayapi/holidayapi-php/src',
         ),
-        'App\\' => 
+        'App\\' =>
         array (
             0 => __DIR__ . '/../..' . '/App',
         ),
@@ -46,7 +46,6 @@ class ComposerStaticInita6a44aea3159a7c961ad0f05d7467e36
             $loader->prefixLengthsPsr4 = ComposerStaticInita6a44aea3159a7c961ad0f05d7467e36::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInita6a44aea3159a7c961ad0f05d7467e36::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInita6a44aea3159a7c961ad0f05d7467e36::$classMap;
-
         }, null, ClassLoader::class);
     }
 }
