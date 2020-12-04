@@ -146,7 +146,7 @@ $inv = new Cinvest;
 </div>
 
     <?php else : ?>
-    <div class="alert alert-info" role="alert"> Please update your <a href="<?= PROFILE; ?>" class="btn btn-outline-warning">Profile</a> before you can proceed </div>
+    <div class="alert alert-secondary" role="alert"> Please update your <a href="<?= PROFILE; ?>" class="btn btn-outline-primary">Profile</a> before you can proceed </div>
     <?php endif; ?>
 <?php endif; ?>
 
