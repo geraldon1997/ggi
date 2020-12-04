@@ -73,6 +73,7 @@ use App\Models\Profile as P;
         url : '/location/countries',
         success : (data) => {
             var countries = JSON.parse(data);
+            console.log(countries);
             countries.forEach(country => {
                 $('#inputCountry').append("<option value="+country.country+">"+country.country+"</option>"); 
             });
