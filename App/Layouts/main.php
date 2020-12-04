@@ -32,6 +32,7 @@
     <link rel="stylesheet" type="text/css" href="<?= ASSETS; ?>css/responsive.css" />
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="<?= ASSETS; ?>images/ggi.png" />
+    <script src="<?= ASSETS; ?>js/jquery-3.3.1.min.js"></script>
 </head>
 
 <body>
