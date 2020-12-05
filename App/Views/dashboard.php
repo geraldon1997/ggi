@@ -108,7 +108,7 @@ $inv = new Cinvest;
                     <i class="fas fa-hand-holding-usd"></i>
                 </div>
                 <div class="stats-data">
-                    <div class="stats-number">5</div>
+                    <div class="stats-number"><?= Withdrawal::totalWithdrawal(); ?></div>
                 </div>
             </div>
         </div>
