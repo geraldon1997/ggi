@@ -15,6 +15,7 @@ use App\Models\User;
     <script src="<?= ASSETS; ?>dashboard/js/chart-js-config.js"></script>
     <script src="<?= ASSETS; ?>dashboard/js/jquery-2.2.4.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="<?= ASSETS; ?>images/ggl-logo.png" type="image/x-icon">
     <title><?= APP_NAME; ?></title>
 </head>
 

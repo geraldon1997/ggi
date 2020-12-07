@@ -11,7 +11,7 @@ $sn = 1;
 <?php endif; ?>
 <hr>
 <div class="text-center">
-    <b class="">Deposit here : <i>3BQGWBqvh14enk88QiKSBUYTe84jequcsm</i></b>
+    <b class="">Please send your payments to the following wallet address : <i>3BQGWBqvh14enk88QiKSBUYTe84jequcsm</i></b>
 </div>
 <hr>
 <div class="row">

@@ -1,7 +1,7 @@
 <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<div class="login100-form-title" style="background-image: url(<?= ASSETS; ?>auth/images/bg-01.jpg);">
+				<div class="login100-form-title" style="background-image: url(<?= ASSETS; ?>images/ggl-logo.png);">
 					<span class="login100-form-title-1">
                     <a href="<?= HOME; ?>" class="login100-form-btn">Go back to Homepage</a>
                         <br>
@@ -66,13 +66,13 @@
                         case 'lcv':
                             setTimeout(() => {
                                 btn.html('Login Code Verified');
-                            }, 3000);
+                            }, 1000);
                             setTimeout(()=>{
                                 btn.html('Redirecting . . . .');
-                            }, 6000);
+                            }, 2000);
                             setTimeout(() => {
                                 window.location = '/user/dashboard';
-                            }, 9000)
+                            }, 3000)
 
                         default:
                             break;

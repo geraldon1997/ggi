@@ -1,7 +1,7 @@
 <div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<div class="login100-form-title" style="background-image: url(<?= ASSETS; ?>auth/images/bg-01.jpg);">
+				<div class="login100-form-title" style="background-image: url(<?= ASSETS; ?>images/ggl-logo.png); background-size: contain;">
 					<span class="login100-form-title-1">
                     <a href="<?= HOME; ?>" class="login100-form-btn">Go back to Homepage</a>
                         <br>
@@ -97,7 +97,7 @@ $('form').submit((event)=>{
                 setTimeout(() => {
                     alert('A verification link has been sent to your email');
                     location.href = "/user/signin"
-                }, 3000);
+                }, 2000);
             }
         }
     });

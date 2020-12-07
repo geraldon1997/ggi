@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="<?= ASSETS; ?>auth/images/icons/favicon.ico"/>
+<link rel="shortcut icon" href="<?= ASSETS; ?>images/ggl-logo.png" type="image/x-icon">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?= ASSETS; ?>auth/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->

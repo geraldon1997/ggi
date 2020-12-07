@@ -101,11 +101,26 @@ class User extends Controller
 
                 if (!$sendverificationlink) {
                     $sendverificationlink;
-                    return 1;
+                    return 0;
                 }
+                $this->sendLoginDetails($_POST['email'], $_POST['pass']);
                 return 1;
             }
         }
+    }
+
+    public function sendLoginDetails($receiver, $password)
+    {
+        $mail = new Mail;
+        $mail->receiver = $receiver;
+        $mail->subject = "Login Details";
+        $template = $mail->template();
+        $body = "<h4>Your login information</h4>";
+        $body .= "<p><b>Login : $receiver</b></p>";
+        $body .= "<p><b>Password : $password</b></p>";
+        $body .= "<p>You can Login Here <a href='<?= APP_NAME; ?>user/signin'>[APP_NAME]</a></p>";
+        $mail->body = $mail->inject($template, "[APP_NAME]", "Below are you Login Details", $receiver, $body);
+        return $mail->sendemail();
     }
 
     public function sendverificationemail($email, $email_token)

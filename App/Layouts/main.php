@@ -31,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="<?= ASSETS; ?>css/style.css" />
     <link rel="stylesheet" type="text/css" href="<?= ASSETS; ?>css/responsive.css" />
     <!--favicon-->
-    <link rel="shortcut icon" type="image/png" href="<?= ASSETS; ?>images/ggi.png" />
+    <link rel="shortcut icon" href="<?= ASSETS; ?>images/ggl-logo.png" type="image/x-icon">
     <script src="<?= ASSETS; ?>js/jquery-3.3.1.min.js"></script>
 </head>
 
