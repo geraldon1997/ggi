@@ -73,7 +73,7 @@
         <div class="container-fluid">
             <div class="cp_logo_wrapper">
                 <a href="<?= HOME; ?>">
-                    <img src="<?= ASSETS; ?>images/ggi.png" alt="logo" width="70px" style="transform: translateY(-4px);">
+                    <img src="<?= ASSETS; ?>images/ggl-logo.png" alt="logo" width="70px" style="transform: translateY(-4px);">
                     
                 </a>
             </div>
@@ -170,7 +170,7 @@
                 <div class="col-lg-4 col-md-6 col-12 col-sm-12">
                     <div class="wrapper_second_about">
                         <div class="wrapper_first_image">
-                            <a href="index.html"><img src="<?= ASSETS; ?>images/ggi.png" class="img-responsive" alt="logo" width="100px"/></a>
+                            <a href="index.html"><img src="<?= ASSETS; ?>images/ggl-logo.png" class="img-responsive" alt="logo" width="100px"/></a>
                         </div>
                         <p>We offer our investors mutually beneficial cooperation based on clear agreements.</p>
                         <div class="counter-section">
@@ -202,7 +202,7 @@
                             <li><a href="#about"><i class="fa fa-angle-right"></i>About us</a>
                             </li>
 
-                            <li><a href="contact_us.html"><i class="fa fa-angle-right"></i>contact </a>
+                            <li><a href="#contact"><i class="fa fa-angle-right"></i>contact </a>
                             </li>
                          
                         </ul>
