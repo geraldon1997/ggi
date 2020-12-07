@@ -38,6 +38,7 @@
     background-color: blue;
     color: white !important;
     font-weight: bold;
+    margin-bottom: 50px !important;
   }
   </style>
 </head>
