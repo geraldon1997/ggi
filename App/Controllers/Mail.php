@@ -23,7 +23,7 @@ class Mail extends Controller
 
         try {
             //Server settings
-            $this->phpmailer->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+            $this->phpmailer->SMTPDebug = SMTP::DEBUG_OFF;                      // Enable verbose debug output
             $this->phpmailer->isSMTP();                                            // Send using SMTP
             $this->phpmailer->Host       = 'secure265.inmotionhosting.com';                    // Set the SMTP server to send through
             $this->phpmailer->SMTPAuth   = true;                                   // Enable SMTP authentication
