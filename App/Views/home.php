@@ -23,7 +23,7 @@
                                         <div class="slider_btn float_left">
                                             <ul>
                                                 <li data-animation="animated bounceInLeft">
-                                                    <a href="<?= SIGNIN; ?>">start now</a>
+                                                    <a href="<?= SIGNUP; ?>">start now</a>
                                                 </li>
                                                <li data-animation="animated bounceInLeft">
                                                     <a href="#plan">view plans</a>
