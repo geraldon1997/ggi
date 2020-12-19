@@ -1,32 +1,37 @@
-<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<div class="login100-form-title" style="background-image: url(<?= ASSETS; ?>auth/images/bg-01.jpg);">
-					<span class="login100-form-title-1">
-                    <a href="<?= HOME; ?>" class="login100-form-btn">Go back to Homepage</a>
-                        <br>
-                        Forgot Password 
-					</span>
-				</div>
-
-				<form class="login100-form validate-form">
-					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-						<span class="label-input100">Email : </span>
-						<input class="input100" type="email" name="email" placeholder="Enter Email Address">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							send password reset link
-						</button>
-					</div>
-                </form>
+<!--community area start-->
+<div class="community-area v2 wow fadeInUp section-padding" id="contact" style="visibility: visible; animation-name: fadeInUp;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="heading">
+                        <h5></h5>
+                        <div class="space-10"></div>
+                        <h1>Forgot password Form</h1>
+                    </div>
+                    <div class="space-30"></div>
+                    
+                    <div class="space-30"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 offset-3">
+                    <div class="contact-form">
+                        <form>
+                            <input type="email" name="email" placeholder="your email address">
+                            <div class="space-20"></div>
+                            <button class="btn btn-primary">Send Password Reset Link</button>
+                        </form>
+                        
+                    </div>
+                </div>
                 
-                
-			</div>
-		</div>
-	</div>
+            </div>
+            
+        </div>
+        
+       
+    </div>
+    <!--community area end-->
 
     <script>
         $('form').submit((e) => {
@@ -59,7 +64,7 @@
                                 btn.html('email address confirmed');
                             }, 3000);
                             setTimeout(() => {
-                                alert('A password reset link has been sent to your email');
+                                alert('A password reset link has been sent to your email. \n please check your spam if not found inbox and move it to inbox');
                                 window.location = '/user/signin';
                             }, 6000);
                             break;

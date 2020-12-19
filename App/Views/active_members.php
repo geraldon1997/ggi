@@ -9,7 +9,7 @@
             </div>
             <div class="">Active members</div>
         </div>
-        <div class="card-body card-body-with-dark-table">
+        <div class="card-body card-body-with-dark-table" style="overflow:auto;">
             <table class="table table-dark table-in-card">
                 <thead>
                     <tr>
@@ -51,49 +51,29 @@
 </div>
 
 <script>
-    $('#delete').click((e) => {
-        var userid = $(e.currentTarget).attr('user-id');
+    $('button').click((e) => {
+        var btn = $(e.currentTarget);
+        var action = btn.attr('id');
+        var userid = btn.attr('user-id');
 
-        var result = confirm('are you sure you wish to delete ?');
+        var verify = confirm('Are you sure to '+action+' this user');
 
-        if (result == true) {
+        if (verify == true) {
             $.ajax({
                 type : 'POST',
-                url : '/user/delete',
+                url : '/user/'+action,
                 data : {
                     userid : userid
                 },
                 success : (response) => {
                     if (response) {
-                        alert('user has been deleted');
+                        alert('user has been '+action+'d');
                         location.reload();
                     } else {
-                        alert('An error occurred, user was not deleted');
+                        alert('an error occurred');
                     }
                 }
             })
         }
-
-        
-    })
-
-    $('#upgrade').click((e) => {
-        var userid = $(e.currentTarget).attr('user-id');
-
-        $.ajax({
-            type : 'POST',
-            url : '/user/upgrade',
-            data : {
-                userid : userid
-            },
-            success : (response) => {
-                if (response) {
-                    alert('user has been upgraded to Moderator');
-                    location.reload();
-                } else {
-                    alert('An error occurred, user was not upgraded');
-                }
-            }
-        })
     })
 </script>

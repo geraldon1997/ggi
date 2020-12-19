@@ -7,7 +7,7 @@ $sn = 1;
 ?>
 <h1 class="dash-title">Investments</h1>
 
-<?php if (User::isMember()) : ?>
+<?php if (User::isMember() || User::isModerator()) : ?>
     <?php include_once 'investment_form.php'; ?>
 <?php endif; ?>
 <hr>
@@ -20,7 +20,7 @@ $sn = 1;
                 </div>
                 <div class="">Active investment</div>
             </div>
-            <div class="card-body card-body-with-dark-table">
+            <div class="card-body card-body-with-dark-table" >
                 <?php if (array_key_first($params) == 'user') : ?>
                 <table class="table table-dark table-in-card">
                     <thead>

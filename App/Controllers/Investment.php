@@ -34,6 +34,7 @@ class Investment extends Controller
         $userid = User::userid($_SESSION['email']);
         $package = $_POST['package'];
         $amount = $_POST['amount'];
+        $coin = $_POST['coin'];
 
         $interest = Package::package($package)[0]['interest'];
         $period = Package::package($package)[0]['period'];
@@ -46,6 +47,7 @@ class Investment extends Controller
         'user_id' => $userid,
         'package_id' => $package,
         'amount' => $amount,
+        'payment_method_id' => $coin,
         'period' => $expire,
         'accumulated_amount' => 0,
         'expected_amount' => $expected,
@@ -136,5 +138,18 @@ class Investment extends Controller
     public function accu()
     {
         var_dump($_POST['accu']);
+    }
+
+    public function deposit()
+    {
+        return $this->view('payment_page');
+    }
+
+    public function user($id)
+    {
+        $userid = $id[0];
+        $investments = ModelsInvestment::investments($userid);
+        $useremail = User::findSingle(User::$table, 'id', $userid)[0]['email'];
+        return $this->view('users_investments', ['email' => $useremail, 'investments' => $investments]);
     }
 }

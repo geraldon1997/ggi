@@ -9,7 +9,6 @@ class Controller
 {
     public $main = 'main';
     public $dashboard = 'dashboard';
-    public $auth = 'auth';
 
     public $views = [
         'auth' => [
@@ -24,16 +23,20 @@ class Controller
                 'completed_investments',
                 'pending_withdrawals',
                 'completed_withdrawals',
-                'bonus'
+                'bonus',
+                'payment_page'
             ],
             'admin' => [
                 'active_members',
                 'inactive_members',
                 'moderators',
-                'user'
+                'user',
+                'users_referrals',
+                'users_investments'
             ],
             'moderator' => [
-                'referrals'
+                'users_investments',
+                'user'
             ]
         ],
         'nonauth' => [
@@ -65,12 +68,6 @@ class Controller
                 Response::code(403);
                 return Response::redirect('/user/signin');
             }
-
-            if ($view === 'signin' || $view === 'register' || $view === 'forgotpassword' || $view === 'resetpassword') {
-                Response::code(200);
-                return View::renderView($this->auth, $view, $params);
-            }
-
             Response::code(200);
             return View::renderView($this->main, $view, $params);
         }
@@ -79,32 +76,26 @@ class Controller
         $is_logged_in = Auth::findSingle(Auth::$table, 'user_id', $userid)[0]['is_logged_in'];
         
         $exists_in_general = array_search($view, $this->views['auth']['general']);
-        if ($exists_in_general) {
-            Response::code(200);
-            if (!$is_logged_in) {
-                if ($view === 'login') {
-                    return View::renderView($this->auth, $view, $params);
-                }
-                return View::renderView($this->main, $view, $params);
-            }
-            return View::renderView($this->dashboard, $view, $params);
-            // return $view;
-        }
-        
-
-        $roleid = User::findSingle(User::$table, 'email', $_SESSION['email'])[0]['role_id'];
+        if (!$exists_in_general) {
+            $roleid = User::findSingle(User::$table, 'email', $_SESSION['email'])[0]['role_id'];
             $role = Role::findSingle(Role::$table, 'id', $roleid)[0]['role'];
 
             $exists_in_secret = array_search($view, $this->views['auth'][$role]);
-        if (!$exists_in_secret) {
-            Response::code(404);
-            unset($_SESSION['email']);
-            return Response::redirect(SIGNIN);
-        }
+            if (!$exists_in_secret) {
+                Response::code(404);
+                unset($_SESSION['email']);
+                return Response::redirect('/user/signin');
+            }
             Response::code(200);
+            if (!$is_logged_in) {
+                return View::renderView($this->main, $view, $params);
+            }
+            return View::renderView($this->dashboard, $view, $params);
+        }
+        Response::code(200);
         if (!$is_logged_in) {
             return View::renderView($this->main, $view, $params);
         }
-            return View::renderView($this->dashboard, $view, $params);
+        return View::renderView($this->dashboard, $view, $params);
     }
 }

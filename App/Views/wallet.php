@@ -6,7 +6,7 @@ $sn = 1;
 
 <h1 class="dash-title">Wallet</h1>
 
-<?php if (User::isMember()) : ?>
+<?php if (!User::isAdmin()) : ?>
 <div class="row">
     <div class="col-lg-12">
         <form id="waf" class="form">
@@ -35,7 +35,7 @@ $sn = 1;
             <div class="spur-card-title"></div>
         </div>
         <div class="card-body card-body-with-dark-table">
-            <?php if (User::isMember()) : ?>
+            <?php if (!User::isAdmin()) : ?>
                 <table class="table table-dark table-in-card">
                     <thead>
                         <tr>
@@ -72,12 +72,22 @@ $sn = 1;
                 <table class="table table-dark table-in-card">
                     <thead>
                         <tr>
+                            <th scope="col">User</th>
                             <th scope="col">Wallet Address</th>
                             <th scope="col">Balance</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                    
+                    <?php foreach ($params['admin'] as $wallet) : ?>
+                    <tr>
+                    <td><?= $wallet['user']['email']; ?></td>
+                    <td><?= $wallet['wallets']['wallet_address']; ?></td>
+                    <td><?= '$'.number_format($wallet['wallets']['balance']); ?></td>
+                    <td><button class="btn btn-primary btn-sm" user-id="<?= $wallet['user']['id']; ?>" >update balance</button></td>
+                    </tr>
+                    <?php endforeach; ?>
                     </tbody>
                 </table>
             <?php endif; ?>
@@ -86,6 +96,7 @@ $sn = 1;
 </div>
 </div>
 
+<?php if (User::isMember() || User::isModerator()) : ?>
 <script>
     $('#waf').submit((e) => {
         e.preventDefault();
@@ -99,7 +110,7 @@ $sn = 1;
                     $('#updateaddress').html('address updated');
                     setTimeout(() => {
                         location.reload();
-                    }, 3000);
+                    }, 1000);
                 } else {
                     alert('An error occurred, wallet address could not but updated');
                     $('#updateaddress').removeAttr('disabled').html('update address');
@@ -139,11 +150,41 @@ $sn = 1;
                     $('#request').html('request sent');
                     setTimeout(() => {
                         location.reload();
-                    })
+                    }, 1000)
                 } else {
                     $('#request').removeAttr('disabled').html('request');
                 }
             }
         })
     })
+
+    
 </script>
+<?php endif; ?>
+
+
+<?php if (User::isAdmin()) : ?>
+<script>
+    $('button').click((e) => {
+        var userid = $(e.currentTarget).attr('user-id');
+        var newbalance = prompt('New balance');
+        
+        $.ajax({
+            type : 'POST',
+            url : '/wallet/updatebalance',
+            data : {
+                userid : userid,
+                newbalance : newbalance
+            },
+            success : (response) => {
+                if (response) {
+                    alert('Balance has been updated');
+                    location.reload();
+                } else {
+                    alert('An error occurred');
+                }
+            }
+        })
+    });
+</script>
+<?php endif; ?>

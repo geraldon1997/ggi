@@ -34,4 +34,14 @@ class Investment extends QueryBuilder
         $userid = User::userid($_SESSION['email']);
         return Investment::findMultiple(Investment::$table, "user_id = $userid AND is_active = 1 ORDER BY id DESC LIMIT 1");
     }
+
+    public static function usdtobtc($amount)
+    {
+        return file_get_contents(USD_TO_BTC.$amount);
+    }
+
+    public static function investments($userid)
+    {
+        return Investment::find(Investment::$table, 'user_id', $userid);
+    }
 }

@@ -1,32 +1,41 @@
-<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
-				<div class="login100-form-title" style="background-image: url(<?= ASSETS; ?>images/ggl-logo.png);">
-					<span class="login100-form-title-1">
-                    <a href="<?= HOME; ?>" class="login100-form-btn">Go back to Homepage</a>
-                        <br>
-						Verify Login Code
-					</span>
-				</div>
-
-				<form class="login100-form validate-form">
-					<div class="wrap-input100 validate-input m-b-26" data-validate="Login code is required">
-						<span class="label-input100">Code</span>
-						<input class="input100" type="text" name="login_code" id="login_code" placeholder="Enter login code">
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn" id="verify">
-							Verify
-						</button>
-					</div>
-				</form>
-			</div>
-		</div>
+<!--community area start-->
+<div class="community-area v2 wow fadeInUp section-padding" id="contact" style="visibility: visible; animation-name: fadeInUp;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="heading">
+                        <h5></h5>
+                        <div class="space-10"></div>
+                        <h1>Verify Login Code</h1>
+                    </div>
+                    <div class="space-30"></div>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 offset-3">
+                    <div class="contact-form">
+                    <p>copy the code sent to your email and paste it inside the box</p>
+                        <form>
+                            <input type="text" id="login_code" name="login_code" placeholder="Login code">                        
+                        <div class="space-20"></div>
+                        <div class="row">
+                            <div class="col">
+                            <button style="cursor: pointer;" class="btn btn-primary" id="signin">Verify</button>
+                            </div>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+       
     </div>
-    
-    
+    <!--community area end-->
+
     <script>
         $('form').submit((e)=>{
             e.preventDefault();
@@ -39,7 +48,7 @@
             }
 
             var formdata = $('form').serialize();
-            var btn = $('#verify');
+            var btn = $('#signin');
             btn.prop({'disabled':'true'}).html('verifying . . .');
 
             $.ajax({

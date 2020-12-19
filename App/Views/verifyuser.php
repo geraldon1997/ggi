@@ -12,7 +12,6 @@
             time : expiry
         },
         success : (response) => {
-            
             switch (response) {
                 case 'it':
                     alert('Invalid Token');

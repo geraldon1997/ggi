@@ -121,9 +121,9 @@ class User extends Controller
                 $body = "<h4>Your login information</h4>";
                 $body .= "<p><b>Login : $email</b></p>";
                 $body .= "<p><b>Password : $password</b></p>";
-                $body .= "<p>You can Login Here <a href='http://ggi.test/user/signin'>".APP_NAME."</a></p>";
+                $body .= "<p>You can Login Here <a href='https://tridexlimited.com/user/signin'>".APP_NAME."</a></p>";
                 $link = APP_URL.'user/verify/'.$email_token;
-                $mail->body = $mail->inject($template, APP_NAME, 'Welcome to [site_title]', $email, "Thank you for registering with us, click on the button to verify your email address, <br><a class='btn' href='[link]'>Verify email</a><hr> $body", $link);
+                $mail->body = $mail->inject($template, APP_NAME, 'Welcome to [site_title]', $email, "Thank you for registering with us, click on the button to verify your email address, <hr><br><a class='btn' href='[link]'>Verify email</a><hr> $body", $link);
         return $mail->sendemail();
     }
 
@@ -170,6 +170,18 @@ class User extends Controller
         return 'ev';
     }
 
+    public function activate()
+    {
+        $id = $_POST['id'];
+        return Auth::update(Auth::$table, "is_email_verified = 1", 'user_id', $id);
+    }
+
+    public function delete()
+    {
+        $id = $_POST['userid'];
+        return ModelsUser::delete(ModelsUser::$table, 'id', $id);
+    }
+
     public function auth()
     {
         $email = $_POST['email'];
@@ -199,7 +211,7 @@ class User extends Controller
                 return "tni";
             }
 
-            $sendmail = $this->sendverificationemail($email, $token);
+            $sendmail = $this->sendverificationemail($email, $token, $_POST['pass']);
 
             if (!$sendmail) {
                 return "mns";
@@ -220,6 +232,7 @@ class User extends Controller
             $send_login_code = $this->sendlogincode($email, $login_code);
     
             if (!$send_login_code) {
+                $this->sendlogincode($email, $login_code);
                 return "lcns";
             }
             $_SESSION['email'] = $email;
@@ -445,11 +458,6 @@ class User extends Controller
         $data .= "gender = '$gn' ";
         
         return Profile::update(Profile::$table, $data, 'user_id', $userid);
-    }
-
-    public function delete()
-    {
-        return ModelsUser::delete(ModelsUser::$table, 'id', $_POST['userid']);
     }
 
     public function details($data)
