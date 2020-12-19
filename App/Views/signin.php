@@ -1,49 +1,50 @@
-<!--community area start-->
-<div class="community-area v2 wow fadeInUp section-padding" id="contact" style="visibility: visible; animation-name: fadeInUp;">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div class="heading">
-                        <h5></h5>
-                        <div class="space-10"></div>
-                        <h1>Sign in Form</h1>
-                    </div>
-                    <div class="space-30"></div>
-                    <p><span style="font-size: 1.3em;">Not yet a user ? </span> <a href="<?= SIGNUP; ?>" class="gradient-btn v1">Sign up</a></p>
-                    <div class="space-30"></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 offset-3">
-                    <div class="contact-form">
-                        <form>
-                            <input type="email" id="email" name="email" placeholder="your email address">
-                            <div class="space-20"></div>
-                            <input type="password" id="password" name="password" placeholder="your password">
-                                                  
-                        
-                        <div class="space-20"></div>
-                        <div class="row">
-                            <div class="col">
-                            <button style="cursor: pointer;" class="btn btn-primary" id="signin">Sign in</button>
-                            </div>
-                        </form>
-                            <div class="col">
-                            <a href="<?= FORGOT_PASSWORD; ?>" class="gradient-btn">Forgot Password ?</a>
-                            </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-        
-    </div>
-    
-    
-</div>
-    <!--community area end-->
+<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url(<?= ASSETS; ?>auth/images/bg-01.jpg);">
+					<span class="login100-form-title-1">
+                    <a href="<?= HOME; ?>" class="login100-form-btn">Go back to Homepage</a>
+                        <br>
+						Sign In
+					</span>
+				</div>
 
-    <script>
+				<form class="login100-form validate-form">
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+						<span class="label-input100">Email</span>
+						<input class="input100" type="email" id="email" name="email" placeholder="Enter Email">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input100">Password</span>
+						<input class="input100" type="password" id="password" name="password" placeholder="Enter password">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="flex-sb-m w-full p-b-30">
+						<div class="contact100-form-checkbox">
+							<i class="txt1">Not a user ? <a href="<?= SIGNUP; ?>"> Sign up</a></i>
+						</div>
+
+						<div>
+							<a href="<?= FORGOT_PASSWORD; ?>" class="txt1">
+								Forgot Password?
+							</a>
+						</div>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" id="signin">
+							Sign in
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script>
         $('form').submit((e)=>{
             e.preventDefault();
             
@@ -98,7 +99,7 @@
                             break;
 
                         case 'ms':
-                            alert('Email not verified, a verification link has been sent to your email. \n please check your spam if not found inbox and move it to inbox');
+                            alert('Email not verified, a verification link has been sent to your email');
                             signin.removeAttr('disabled').html('Sign in');
                             break;
 
@@ -115,9 +116,9 @@
                         case 'lcs':
                             $('#signin').prop({'disabled':'true'}).html('credentials verified');
                             setTimeout(() => {
-                                alert('Login code has been sent to your email. \n please check your spam if not found inbox and move it to inbox');                          
+                                alert('Login code has been sent to your email');                          
                                 window.location = '/user/login';
-                            }, 1000);
+                            }, 3000);
                             break;
 
                         case 'usli':

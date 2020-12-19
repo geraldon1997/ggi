@@ -9,6 +9,7 @@ class Controller
 {
     public $main = 'main';
     public $dashboard = 'dashboard';
+    public $auth = 'auth';
 
     public $views = [
         'auth' => [
@@ -68,6 +69,12 @@ class Controller
                 Response::code(403);
                 return Response::redirect('/user/signin');
             }
+
+            if ($view === 'signin' || $view === 'register' || $view === 'forgotpassword' || $view === 'resetpassword') {
+                Response::code(200);
+                return View::renderView($this->auth, $view, $params);
+            }
+
             Response::code(200);
             return View::renderView($this->main, $view, $params);
         }
@@ -94,6 +101,9 @@ class Controller
         }
         Response::code(200);
         if (!$is_logged_in) {
+            if ($view === 'login') {
+                return View::renderView($this->auth, $view, $params);
+            }
             return View::renderView($this->main, $view, $params);
         }
         return View::renderView($this->dashboard, $view, $params);
