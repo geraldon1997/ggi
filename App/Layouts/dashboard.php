@@ -45,7 +45,7 @@ use App\Models\User;
                 </div>
                 <?php endif; ?>
 
-                <?php if (User::isMember() && User::hasProfile() || User::isAdmin()) : ?>
+                <?php if (User::isMember() && User::hasProfile() || User::isAdmin() || USER::isModerator()) : ?>
                 <div class="dash-nav-dropdown ">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                         <i class="fas fa-cube"></i> Investments </a>
