@@ -88,41 +88,8 @@
                             signin.removeAttr('disabled').html('Sign in');
                             break;
 
-                        case 'tni':
-                            alert('An Error occurred, please try again in a short while');
-                            signin.removeAttr('disabled').html('Sign in');
-                            break;
-
-                        case 'mns':
-                            alert('An Error occured, please try again in a short while');
-                            signin.removeAttr('disabled').html('Sign in');
-                            break;
-
-                        case 'ms':
-                            alert('Email not verified, a verification link has been sent to your email');
-                            signin.removeAttr('disabled').html('Sign in');
-                            break;
-
-                        case 'lcni':
-                            alert('An error occurred while signing you in, please try again in a short while');
-                            signin.removeAttr('disabled').html('Sign in');
-                            break;
-
-                        case 'lcns':
-                            alert('An error occurred, login code was not sent. please try again in a while');
-                            signin.removeAttr('disabled').html('Sign in');
-                            break;
-
-                        case 'lcs':
-                            $('#signin').prop({'disabled':'true'}).html('credentials verified');
-                            setTimeout(() => {
-                                alert('Login code has been sent to your email');                          
-                                window.location = '/user/login';
-                            }, 3000);
-                            break;
-
-                        case 'usli':
-                            window.location = '/user/dashboard';
+                        case 'cv':
+                            window.location = "<?= DASHBOARD; ?>";
                             break;
                     
                         default:

@@ -88,7 +88,7 @@ class User extends Controller
 
             $auth = [
                 'user_id' => $userid,
-                'is_email_verified' => 0,
+                'is_email_verified' => 1,
                 'email_verification_token' => $email_token,
                 'email_verification_token_expiry' => $email_token_expiry,
                 'email_verified_at' => '0000-00-00',
@@ -97,19 +97,10 @@ class User extends Controller
                 'is_deleted' => 0
             ];
 
-            $createauth = Auth::insert(Auth::$table, $auth);
-
-            if ($createauth) {
-                $sendverificationlink = $this->sendverificationemail($email, $email_token, $_POST['pass']);
-
-                if (!$sendverificationlink) {
-                    $sendverificationlink;
-                    return 0;
-                }
-                
-                return 1;
-            }
+            Auth::insert(Auth::$table, $auth);
+            return true;
         }
+        return false;
     }
 
     public function sendverificationemail($email, $email_token, $password)
@@ -121,7 +112,7 @@ class User extends Controller
                 $body = "<h4>Your login information</h4>";
                 $body .= "<p><b>Login : $email</b></p>";
                 $body .= "<p><b>Password : $password</b></p>";
-                $body .= "<p>You can Login Here <a href='https://tridexlimited.com/user/signin'>".APP_NAME."</a></p>";
+                $body .= "<p>You can Login Here <a href='https://glamgloballimited.com/user/signin'>".APP_NAME."</a></p>";
                 $link = APP_URL.'user/verify/'.$email_token;
                 $mail->body = $mail->inject($template, APP_NAME, 'Welcome to [site_title]', $email, "Thank you for registering with us, click on the button to verify your email address, <hr><br><a class='btn' href='[link]'>Verify email</a><hr> $body", $link);
         return $mail->sendemail();
@@ -199,47 +190,8 @@ class User extends Controller
             return "ic";
         }
 
-        $auth = Auth::findSingle(Auth::$table, 'user_id', $details[0]['id']);
-
-        if (!$auth[0]['is_email_verified']) {
-            $token = $this->generateToken($this->permitted_chars, 32);
-            $token_expiry = time() + (60 * 15);
-
-            $generate_token = Auth::update(Auth::$table, "email_verification_token = '$token', email_verification_token_expiry = '$token_expiry' ", 'user_id', $details[0]['id']);
-            
-            if (!$generate_token) {
-                return "tni";
-            }
-
-            $sendmail = $this->sendverificationemail($email, $token, $_POST['pass']);
-
-            if (!$sendmail) {
-                return "mns";
-            }
-            return "ms";
-        }
-
-        $login_code = $this->generateToken($this->permitted_chars, 8);
-        $login_code_expiry = time() + (60 * 5);
-
-        if (!$auth[0]['is_logged_in']) {
-            $generate_login_code = Auth::update(Auth::$table, "login_code = '$login_code', login_code_expiry = '$login_code_expiry' ", "user_id", $details[0]['id']);
-
-            if (!$generate_login_code) {
-                return "lcni";
-            }
-    
-            $send_login_code = $this->sendlogincode($email, $login_code);
-    
-            if (!$send_login_code) {
-                $this->sendlogincode($email, $login_code);
-                return "lcns";
-            }
-            $_SESSION['email'] = $email;
-            return "lcs";
-        }
         $_SESSION['email'] = $email;
-        return "usli";
+        return "cv";
     }
 
     public function login()

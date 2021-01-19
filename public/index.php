@@ -10,7 +10,7 @@ require_once '../vendor/autoload.php';
 
 define('APP_NAME', 'Glam Global Limited');
 define('APP_ABBRV', 'GGL');
-define('APP_URL', 'http://ggi.test/');
+define('APP_URL', 'https://glamgloballimited.com/');
 define('ASSETS', APP_URL.'public/assets/');
 define('HOME', '/');
 define('ABOUT', '/page/about');

@@ -89,15 +89,14 @@ $('form').submit((event)=>{
             pass : $('input#password').val()
         },
         success : (response) => {
-            
+        
             if (response) {
                 setTimeout(() => {
                     $('form button').html('registration was successful');
                 }, 1000);
                 
                 setTimeout(() => {
-                    alert('A verification link has been sent to your email');
-                    location.href = "/user/signin"
+                    location.href = "<?= SIGNIN; ?>"
                 }, 3000);
             }
         }

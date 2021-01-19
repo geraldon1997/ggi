@@ -80,7 +80,6 @@ class Controller
         }
 
         $userid = User::findSingle(User::$table, 'email', $_SESSION['email'])[0]['id'];
-        $is_logged_in = Auth::findSingle(Auth::$table, 'user_id', $userid)[0]['is_logged_in'];
         
         $exists_in_general = array_search($view, $this->views['auth']['general']);
         if (!$exists_in_general) {
@@ -94,18 +93,11 @@ class Controller
                 return Response::redirect('/user/signin');
             }
             Response::code(200);
-            if (!$is_logged_in) {
-                return View::renderView($this->main, $view, $params);
-            }
+            
             return View::renderView($this->dashboard, $view, $params);
         }
         Response::code(200);
-        if (!$is_logged_in) {
-            if ($view === 'login') {
-                return View::renderView($this->auth, $view, $params);
-            }
-            return View::renderView($this->main, $view, $params);
-        }
+        
         return View::renderView($this->dashboard, $view, $params);
     }
 }
