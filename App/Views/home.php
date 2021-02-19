@@ -28,11 +28,7 @@
                                                 </li>
                                                
                                             </ul>
-                                            <ul class="telegram">
-                                                <li data-animation="animated infinite fadeIn">
-                                                    <a href="https://t.me/joinchat/AAAAAFfJj3L6Cz2buqsWWw" target="_blank">Join us on <i class="fab fa-telegram-plane" style="font-size: 25px;"></i></a>
-                                                </li>
-                                            </ul>
+                                            
                                         </div>
                                         <div class="clear"></div>
                                     </div>
@@ -530,10 +526,10 @@
         </div>
         <div class="howwork_banner_wrapper index2_homwork_banner_wrapper">
             <div class="vedio_link_wrapper">
-                <a class="test-popup-link button" rel='external' href='https://www.youtube.com/watch?v=asTZF2_7fHk&feature=youtu.be' title='title'><i class="fa fa-play"></i></a>
+                
                 <div class="work_content_wrap">
-                    <h1>How It Works</h1>
-                    <p style="color: white;">Wondering how it Works?  Watch the Video.</p>
+                    <h1>Excellent Practices</h1>
+                    <p style="color: white;">We give the best</p>
 
                 </div>
             </div>
